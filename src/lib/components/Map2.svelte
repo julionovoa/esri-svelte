@@ -5,7 +5,7 @@
 
 	let lonlatText: string = $state('');
 
-	onMount(() => {
+	onMount(async () => {
 		const Map = (await import('@arcgis/core/Map')).default;
 		const MapView = (await import('@arcgis/core/views/MapView')).default;
 
