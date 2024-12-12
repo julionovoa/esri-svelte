@@ -5,24 +5,24 @@
 
 	let lonlatText: string = $state('');
 
-	onMount(() => {
-		const Map = (await import('@arcgis/core/Map')).default;
+	onMount(async () => {
 		const MapView = (await import('@arcgis/core/views/MapView')).default;
 
-		const map = new Map({
-			basemap: 'gray'
-		});
-
+		const createMapDiv = (mapDiv: HTMLDivElement) => {
 		const view = new MapView({
-			container: 'viewDiv',
-			map: map,
+			container: mapDiv,
+			map: {
+				basemap: 'gray'
+			},
 			zoom: 12,
 			center: [-123.3700367, 48.4201456]
 		})
 
+
 		view.when(() => {
 			console.debug('map loaded')
 		})
+	}
 	})
 
 	// const createMapDiv = (mapDiv: HTMLDivElement) => {
